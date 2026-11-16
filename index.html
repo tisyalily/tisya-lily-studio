@@ -237,7 +237,7 @@ img{display:block}
   <div class="pola fp px" style="left:120px;top:70px;width:188px;rotate:-3deg;--d:-14" data-pop="1"><img src="https://tisyalily.github.io/tisya-lily-studio/img/p-monash.jpg" alt="Tisya at Monash"><b>Monash student</b><small class="br">doing my Master's in IT, in Business Information Systems</small></div>
   <div class="pola fp px" style="left:345px;top:320px;width:188px;rotate:3deg;--d:14" data-pop="3"><div class="ill"><img src="https://tisyalily.github.io/tisya-lily-studio/img/iced-latte.svg" alt="" style="height:118px"><img src="https://tisyalily.github.io/tisya-lily-studio/img/can.svg" alt="" style="height:94px;rotate:10deg"></div><b>I love caffeine in any form</b><small>energy drink or iced coffee</small></div>
   <div class="pola fp px" style="left:120px;top:570px;width:188px;rotate:-3deg;--d:-14" data-pop="5"><img src="https://tisyalily.github.io/tisya-lily-studio/img/r-sea.jpg" alt="Tisya watching the sunset at the beach" style="object-position:50% 40%"><b>To calm myself down, I do yoga</b></div>
-  <div class="pola fp px" style="left:1300px;top:70px;width:188px;rotate:3deg;--d:14" data-pop="2"><div class="ill" id="fcookie"></div><b>In love with Brooki cookies</b></div>
+  <div class="pola fp px" style="left:1300px;top:70px;width:188px;rotate:3deg;--d:14" data-pop="2"><img src="https://tisyalily.github.io/tisya-lily-studio/img/brooki-cookies.jpg" alt="A stack of Brooki cookies"><b>In love with Brooki cookies</b></div>
   <div class="pola fp px" style="left:1080px;top:320px;width:188px;rotate:-3deg;--d:-14" data-pop="4"><img src="https://tisyalily.github.io/tisya-lily-studio/img/reel-dayinlife.jpg" alt="Tisya filming herself in a mirror" style="object-position:50% 25%"><b>I'd rather film it than capture it</b></div>
   <div class="pola fp px" style="left:1300px;top:570px;width:188px;rotate:3deg;--d:14" data-pop="6"><img src="https://tisyalily.github.io/tisya-lily-studio/img/p-brunch.jpg" alt="Tisya at a sunny café table" style="object-position:50% 60%"><b>Café hopping around Melbourne</b></div>
 </section>
@@ -381,7 +381,7 @@ $("#inbox").innerHTML = [["choc",1],["caramel",2],["dark",3],["oat",4]].map(([k,
 $("#vals").innerHTML = VALUES.map(([k,t,p,q],i) => `<button class="vc" aria-label="${esc(t)}: tap to flip"><div class="in"><div class="f">${cookie(20+i*5,170,k)}<small>Brooki value 0${i+1}</small><b>${esc(t)}</b></div><div class="b"><small>Brooki value 0${i+1}</small><b>${esc(t)}</b><p>${esc(p)}</p><span class="q">${esc(q)}</span></div></div></button>`).join("");
 $$(".vc").forEach(c => c.onclick = () => c.classList.toggle("flip"));
 $("#ing").innerHTML = RECIPE.map(([a,b]) => `<li><span class="ck">✓</span><div><b>${esc(a)}</b><span>${b}</span></div></li>`).join("");
-$("#fcookie").innerHTML = cookie(77,150,"choc");
+
 $("#ic1").innerHTML = cookie(33,70,"choc"); $("#ic2").innerHTML = cookie(44,70,"caramel");
 $("#rc1").innerHTML = `<div class="float" style="--fd:7s">${cookie(91,250,"caramel")}</div>`;
 $("#nums").innerHTML = NUMS.map(([v,l,s],i) => `<div class="nb" data-in="up" data-d="${250+i*150}"><b data-cnt="${esc(v)}">${esc(v)}</b><span>${esc(l)}</span><small>${esc(s)}</small></div>`).join("");
