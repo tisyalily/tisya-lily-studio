@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Freshly Brewed: Tisya</title>
+<meta name="description" content="Tisya Choudhary: a retail and café team member portfolio, Melbourne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* "Freshly brewed": Tisya's portfolio for retail and café roles.
+   Espresso, latte, cream and terracotta, with blush, berry and maroon accents. */
+:root{
+  --cream:#fbf5ee; --latte:#efe1cf; --sand:#dcc0a3; --terra:#c8674a; --blush:#f2c9cf; --rose:#e3a3ae; --berry:#9b2443; --maroon:#5e1a2c; --esp:#3a2219; --ink:#3f2a22; --ink2:#7d6255;
+  --f-d:"Fraunces", Georgia, serif; --f-u:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif; --f-m:"Courier Prime", "Courier New", monospace;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0;background:#1f120c;color:var(--ink);font-family:var(--f-u);overflow:hidden;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit}
+img{display:block}
+:focus-visible{outline:3px solid var(--terra);outline-offset:4px;border-radius:8px}
+#stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;overflow:hidden;background:var(--cream);--mx:0;--my:0;perspective:2000px}
+.sl{position:absolute;inset:0;visibility:hidden;overflow:hidden;background:radial-gradient(70% 80% at 30% 20%,#fffaf4,transparent 70%),linear-gradient(160deg,#f8efe4,#ecdcc8)}
+.sl.on{visibility:visible}
+.sl::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:40;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .36  0 0 0 0 .26  0 0 0 .2 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>")}
+.dk{background:radial-gradient(70% 90% at 30% 25%,#6e2133,var(--esp) 70%,#22130d);color:var(--cream)}
+.bl{background:radial-gradient(70% 90% at 70% 20%,#fbe0e2,transparent 70%),linear-gradient(160deg,#f1c4c6,#d98879);color:var(--esp)}
+.abs{position:absolute}
+.px{translate:calc(var(--mx) * var(--d,10) * 1px) calc(var(--my) * var(--d,10) * 1px);transition:translate .3s ease-out}
+.float{animation:float var(--fd,6s) ease-in-out var(--fdl,0s) infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.kick{font:700 13px var(--f-u);letter-spacing:.24em;text-transform:uppercase;color:var(--terra);margin:0}
+.dk .kick{color:var(--rose)}
+.bl .kick{color:var(--maroon);opacity:.75}
+.hed{font:600 88px/.95 var(--f-d);letter-spacing:-.02em;margin:12px 0 0;color:var(--esp)}
+.hed em{font-style:italic;font-weight:400;color:var(--berry)}
+.dk .hed{color:var(--cream)} .dk .hed em{color:var(--blush)}
+.bl .hed em{color:var(--maroon)}
+.hand{font-family:var(--f-d);font-weight:400;font-style:italic}
+.body{font:400 21px/1.55 var(--f-u);color:var(--ink2);margin:16px 0 0}
+
+/* beans */
+.bean{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7a4a33,#3a2219);opacity:.8}
+.dk .bean{background:radial-gradient(circle at 35% 30%,#d9a08c,#8a4e3c)}
+.bean::after{content:"";position:absolute;left:46%;top:12%;bottom:12%;width:12%;border-radius:50%;border-left:2px solid rgba(251,245,238,.35);rotate:8deg}
+
+/* 1 cover */
+#cover .hi{position:absolute;left:0;right:0;top:64px;text-align:center}
+#cover .hi p{font:italic 400 32px var(--f-d);color:var(--terra);margin:0}
+#cover .hi h1{font:600 112px/.92 var(--f-d);margin:6px 0 0;letter-spacing:-.03em;color:var(--esp)}
+#cover .hi h1 em{font-style:italic;font-weight:400;color:var(--berry)}
+.cup{position:absolute;left:470px;top:318px;width:290px;cursor:pointer;background:none;border:0;padding:0;filter:drop-shadow(0 30px 40px rgba(58,34,25,.35))}
+.cup svg{display:block;width:100%;height:auto}
+.steam path{fill:none;stroke:rgba(122,74,51,.45);stroke-width:7;stroke-linecap:round;animation:steam 3.2s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:-1.1s}.steam path:nth-child(3){animation-delay:-2.2s}
+@keyframes steam{0%{opacity:0;transform:translateY(16px)}40%{opacity:1}100%{opacity:0;transform:translateY(-26px)}}
+.slot{position:absolute;left:830px;top:340px;width:380px;height:20px;border-radius:99px;background:linear-gradient(#4a2c20,#2a1710);box-shadow:0 8px 16px rgba(58,34,25,.3);z-index:3}
+.docket{position:absolute;left:846px;top:350px;width:348px;background:#fffdf9;padding:30px 28px 34px;box-sizing:border-box;font:400 17px/1.55 var(--f-m);color:var(--esp);box-shadow:0 20px 40px rgba(58,34,25,.2);z-index:2;clip-path:inset(0 0 100% 0);
+  -webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 10px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/16px 10px repeat-x;
+  mask:linear-gradient(#000,#000) top/100% calc(100% - 10px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/16px 10px repeat-x}
+.docket.out{clip-path:inset(0 0 0 0)}
+.docket h4{font:700 19px var(--f-m);text-align:center;margin:0;letter-spacing:.08em}
+.docket .c{text-align:center;font-size:14px;color:var(--ink2);margin:2px 0 0}
+.docket hr{border:0;border-top:2px dashed rgba(58,34,25,.35);margin:14px 0}
+.docket .ln{display:flex;justify-content:space-between;gap:10px}
+.docket .ln i{font-style:normal;color:var(--terra);font-weight:700}
+.docket .tot{font-weight:700;font-size:18px}
+.docket .ty{text-align:center;color:var(--berry);margin-top:12px}
+.press{position:absolute;left:0;right:0;bottom:84px;text-align:center;font:500 15px var(--f-u);color:var(--ink2);letter-spacing:.06em}
+
+/* 2 about */
+.sun2{position:absolute;left:50%;top:55%;width:820px;height:820px;margin:-410px 0 0 -410px;border-radius:50%;background:radial-gradient(circle,#f3cfcf 0,#f5dcd5 45%,rgba(239,225,207,0) 70%)}
+.pola{position:absolute;background:#fffdf9;padding:10px 10px 12px;box-shadow:0 16px 30px rgba(58,34,25,.25)}
+.pola img{width:100%;object-fit:cover}
+.pola.big{z-index:2;padding:14px 14px 16px}
+.pola.big p{font:italic 400 24px var(--f-d);color:var(--ink);text-align:center;margin:12px 0 0}
+.pola.big::before{content:"";position:absolute;top:-14px;left:50%;width:130px;height:30px;margin-left:-65px;background:rgba(242,201,207,.85);rotate:-3deg;z-index:2}
+.pola.fp{z-index:3}
+.pola.fp img{aspect-ratio:1}
+.pola.fp b{display:block;font:600 17px/1.2 var(--f-d);color:var(--esp);margin:10px 4px 0;text-align:center}
+.pola.fp small{display:block;font:italic 400 13px/1.35 var(--f-d);color:var(--ink2);margin:4px 4px 0;text-align:center}
+.ill{aspect-ratio:1;background:radial-gradient(circle at 50% 45%,#fbeee6,#f1d6cd);display:flex;align-items:center;justify-content:center;gap:4px}
+.ill img{aspect-ratio:auto!important;width:auto!important;filter:drop-shadow(0 8px 10px rgba(58,34,25,.25))}
+
+/* 3 what I bring */
+.vals{position:absolute;left:80px;right:80px;top:300px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.vc{height:470px;perspective:1400px;cursor:pointer;background:none;border:0;padding:0;text-align:left}
+.vc .in{position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.3,.9,.3,1);transform-style:preserve-3d}
+.vc.flip .in{transform:rotateY(180deg)}
+.vc .f,.vc .b{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;padding:28px 26px;box-sizing:border-box}
+.vc .f{background:#fffdf9;box-shadow:0 20px 40px rgba(58,34,25,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+.vc .f b{font:600 30px/1.05 var(--f-d);color:var(--esp)}
+.vc .f small{font:600 12px var(--f-u);letter-spacing:.2em;color:var(--terra);text-transform:uppercase}
+.vc .b{color:var(--cream);transform:rotateY(180deg);display:flex;flex-direction:column;gap:14px}
+.vc .b small{font:600 12px var(--f-u);letter-spacing:.2em;color:var(--blush);text-transform:uppercase}
+.vc .b b{font:600 28px/1.05 var(--f-d)}
+.vc .b p{font:400 17px/1.5 var(--f-u);margin:0;color:rgba(251,245,238,.86)}
+.vc .b .q{font:italic 400 21px/1.35 var(--f-d);color:var(--blush);margin-top:auto}
+.vic{width:180px;height:180px;border-radius:50%;display:grid;place-items:center;box-shadow:0 14px 24px rgba(58,34,25,.2);border:6px solid #fff}
+.tap{font:italic 400 19px var(--f-d);color:var(--terra)}
+
+/* 4 recipe */
+.card{position:absolute;left:620px;top:80px;width:900px;height:740px;background:#fffdf9;border-radius:14px;box-shadow:0 30px 60px rgba(58,34,25,.2);padding:40px 48px;box-sizing:border-box;
+  background-image:linear-gradient(90deg,transparent 108px,rgba(200,103,74,.35) 108px 110px,transparent 110px),repeating-linear-gradient(transparent 0 51px,#f1e5d8 51px 52px);background-position:0 0,0 110px}
+.card h3{font:italic 400 38px var(--f-d);color:var(--berry);margin:0 0 6px 76px}
+.ing{list-style:none;margin:20px 0 0;padding:0}
+.ing li{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:start;min-height:52px;padding:8px 0}
+.ing .ck{width:34px;height:34px;border-radius:50%;border:2.5px solid var(--terra);display:grid;place-items:center;margin:2px 0 0 20px;color:var(--cream);font:800 18px var(--f-u)}
+.ing .ck.on{background:var(--terra)}
+.ing b{display:block;font:600 21px/1.25 var(--f-d);color:var(--esp)}
+.ing span{font:400 15.5px/1.45 var(--f-u);color:var(--ink2)}
+.ing span i{font-style:normal;font-weight:600;color:var(--berry)}
+
+/* 5 numbers */
+.nums{position:absolute;left:80px;right:80px;top:330px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.nb{background:rgba(58,34,25,.1);border:1.5px solid rgba(58,34,25,.18);border-radius:22px;padding:26px 24px}
+.nb b{display:block;font:800 76px/1 var(--f-d);color:var(--esp);letter-spacing:-.02em}
+.nb span{display:block;font:500 17px/1.4 var(--f-u);margin-top:10px;color:var(--esp)}
+.nb small{display:block;font:600 12px var(--f-u);letter-spacing:.18em;text-transform:uppercase;margin-top:14px;color:var(--maroon);opacity:.85}
+
+/* 6 jobs */
+.shelf{position:absolute;left:80px;right:80px;top:300px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.jc{background:#fffdf9;border-radius:18px;padding:22px 22px 20px;box-shadow:0 16px 30px rgba(58,34,25,.12);position:relative}
+.jc.now{background:var(--maroon);color:var(--cream)}
+.jc .yr{font:700 13px var(--f-m);color:var(--terra)}
+.jc.now .yr{color:var(--blush)}
+.jc b{display:block;font:600 26px/1.1 var(--f-d);margin-top:6px}
+.jc span{display:block;font:500 14px var(--f-u);color:var(--ink2);margin-top:3px}
+.jc.now span{color:rgba(251,245,238,.72)}
+.jc p{font:400 16px/1.45 var(--f-u);margin:12px 0 0}
+.jc .badge{position:absolute;right:16px;top:-12px;background:var(--blush);color:var(--maroon);font:800 11px var(--f-u);letter-spacing:.16em;padding:5px 10px;border-radius:99px}
+
+/* 7 roster */
+.week{position:absolute;left:80px;top:330px;width:900px;display:grid;grid-template-columns:110px repeat(7,1fr);gap:8px}
+.week div{height:62px;border-radius:12px;display:grid;place-items:center;font:600 14px var(--f-u)}
+.week .h{height:34px;font:700 13px var(--f-u);letter-spacing:.14em;color:var(--rose)}
+.week .r{justify-items:start;padding-left:4px;color:rgba(251,245,238,.7);font:600 14px var(--f-u)}
+.week .s{background:rgba(242,201,207,.88);color:var(--maroon)}
+.avail{position:absolute;left:1040px;top:300px;width:480px}
+.avail .row{display:flex;gap:14px;align-items:baseline;padding:13px 0;border-top:1px solid rgba(251,245,238,.18)}
+.avail .row b{font:600 23px/1.2 var(--f-d);color:var(--cream)}
+.avail .row span{font:500 15px var(--f-u);color:rgba(251,245,238,.65)}
+.avail .row i{font-style:normal;color:var(--rose);font:800 20px var(--f-u)}
+
+/* 8 bonus */
+.phone{width:250px;background:#1f120c;border-radius:38px;padding:10px;box-shadow:0 30px 50px rgba(58,34,25,.4)}
+.phone .s{border-radius:30px;overflow:hidden;aspect-ratio:9/19;background:#fff}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+.ideas{position:absolute;left:640px;top:400px;width:880px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.idea{background:#fffdf9;border-radius:20px;padding:24px;box-shadow:0 16px 30px rgba(58,34,25,.12)}
+.idea small{font:700 12px var(--f-m);color:var(--terra);letter-spacing:.06em}
+.idea b{display:block;font:600 25px/1.1 var(--f-d);color:var(--esp);margin-top:8px}
+.idea p{font:400 16px/1.5 var(--f-u);color:var(--ink2);margin:10px 0 0}
+
+/* 9 thanks */
+.cards{display:flex;gap:14px;justify-content:center}
+.cc{background:#fffdf9;border-radius:16px;padding:14px 18px;min-width:220px;box-shadow:0 14px 26px rgba(0,0,0,.25);display:flex;flex-direction:column;gap:6px;align-items:flex-start;color:var(--ink)}
+.cc small{font:700 11px var(--f-u);letter-spacing:.2em;text-transform:uppercase;color:var(--terra)}
+.cc span,.cc a{font:700 17px var(--f-u);color:var(--esp)}
+.cc button{border:1.5px solid var(--esp);background:none;border-radius:99px;padding:3px 12px;font:600 12px var(--f-u);cursor:pointer}
+
+/* chrome */
+.hud{position:absolute;inset:0;pointer-events:none;z-index:60}
+.dots{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:flex;gap:12px;pointer-events:auto}
+.dots button{all:unset;cursor:pointer;width:20px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8a5a40,#3a2219);opacity:.35;transition:opacity .3s,transform .3s;position:relative;rotate:20deg}
+.dots button::after{content:"";position:absolute;left:44%;top:14%;bottom:14%;width:14%;border-radius:50%;border-left:2px solid rgba(251,245,238,.45)}
+.hud.l .dots button{background:radial-gradient(circle at 35% 30%,#fbe0e2,#e3a3ae)}
+.hud.l .dots button::after{border-left-color:rgba(94,26,44,.5)}
+.dots button.seen{opacity:.7}
+.dots button.cur{opacity:1;transform:scale(1.3)}
+.dots button span{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);rotate:-20deg;white-space:nowrap;font:600 12px var(--f-u);background:var(--esp);color:var(--cream);padding:5px 9px;border-radius:6px;opacity:0;transition:opacity .2s;pointer-events:none}
+.dots button:hover span,.dots button:focus-visible span{opacity:1}
+.navb{position:absolute;right:44px;bottom:24px;display:flex;gap:10px;pointer-events:auto}
+.navb button{width:50px;height:50px;border-radius:50%;border:1.5px solid currentColor;background:rgba(255,250,244,.2);cursor:pointer;display:grid;place-items:center;font-size:19px;transition:transform .2s}
+.navb button:hover{transform:scale(1.08)}
+.navb button:disabled{opacity:.25;cursor:default;transform:none}
+.hud.l{color:var(--cream)} .hud.d{color:var(--esp)}
+.brand{position:absolute;left:44px;bottom:36px;font:700 12px var(--f-u);letter-spacing:.24em;text-transform:uppercase;opacity:.7}
+#rot{position:fixed;inset:0;z-index:100;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--cream);color:var(--esp);text-align:center;padding:30px 24px}
+#rot.on{display:flex}
+#rot b{font:italic 400 38px/1.05 var(--f-d);color:var(--berry)}
+#rot p{font:500 16px/1.5 var(--f-u);max-width:28ch;margin:0}
+#rot svg{width:72px;height:72px;animation:tilt 2.4s ease-in-out infinite}
+@keyframes tilt{0%,30%{transform:rotate(0)}60%,100%{transform:rotate(-90deg)}}
+#rot button{border:1.5px solid var(--esp);background:none;border-radius:99px;padding:10px 18px;font:600 15px var(--f-u);cursor:pointer}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<div id="rot" role="dialog" aria-label="Turn your phone">
+  <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="20" y="6" width="24" height="52" rx="5" fill="none" stroke="#9b2443" stroke-width="3"/><circle cx="32" cy="51" r="2" fill="#c8674a"/></svg>
+  <b>turn me sideways</b><p>This one reads best in landscape.</p><button id="rot-go">Continue anyway</button>
+</div>
+
+<div id="stage">
+
+<!-- 1 COVER -->
+<section class="sl on" id="cover" data-hud="d" data-t="Hello" aria-label="Freshly brewed: Tisya, your next team member">
+  <div id="beans"></div>
+  <div class="hi"><p data-in="pop" data-d="200">hi, I'm Tisya, freshly brewed and ready to be</p><h1 data-in="up" data-d="350">Your next <em>team member.</em></h1></div>
+  <button class="cup" id="cup" aria-label="Tap the cup to print my order">
+    <svg viewBox="0 0 300 470" aria-hidden="true">
+      <g class="steam"><path d="M110 40 q-16 -18 0 -36"/><path d="M150 44 q16 -20 0 -40"/><path d="M190 40 q-16 -18 0 -36"/></g>
+      <defs><linearGradient id="cb" x1="0" x2="1"><stop offset="0" stop-color="#efe1cf"/><stop offset=".45" stop-color="#fffaf3"/><stop offset="1" stop-color="#e3cfb8"/></linearGradient>
+        <linearGradient id="sv" x1="0" x2="1"><stop offset="0" stop-color="#b3563b"/><stop offset=".45" stop-color="#d0745a"/><stop offset="1" stop-color="#a94e34"/></linearGradient></defs>
+      <path d="M22 110 L278 110 L246 460 L54 460 Z" fill="url(#cb)"/>
+      <path d="M36 250 L264 250 L254 360 L46 360 Z" fill="url(#sv)"/>
+      <rect x="6" y="78" width="288" height="40" rx="14" fill="#3a2219"/>
+      <path d="M40 78 Q 50 50 90 48 L210 48 Q 250 50 260 78 Z" fill="#4e2e21"/>
+      <ellipse cx="150" cy="56" rx="26" ry="6" fill="#2a1710"/>
+      <text x="150" y="208" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="62" fill="#5e1a2c">Tisya</text>
+      <path d="M252 160 c6 -10 20 -8 18 3 c-2 9 -18 18 -18 18 s-16 -9 -18 -18 c-2 -11 12 -13 18 -3z" fill="#e3a3ae"/>
+      <text x="150" y="300" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="15" letter-spacing="3" fill="#fbf5ee">TEAM MEMBER</text>
+      <text x="150" y="326" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="12" letter-spacing="3" fill="#fbe0e2">MELBOURNE</text>
+    </svg>
+  </button>
+  <div class="slot" data-in="fade" data-d="500"></div>
+  <div class="docket" id="docket" aria-label="My order">
+    <h4>CAFÉ TISYA</h4><p class="c">order no. 2026 · for here</p><hr>
+    <div class="ln"><span>1 × warm hello</span><i>✓</i></div>
+    <div class="ln"><span>1 × reliable shifts</span><i>✓</i></div>
+    <div class="ln"><span>1 × beautiful displays</span><i>✓</i></div>
+    <div class="ln"><span>1 × accurate POS + cash</span><i>✓</i></div>
+    <div class="ln"><span>+ extra smile</span><i>free</i></div><hr>
+    <div class="ln tot"><span>TOTAL</span><span>1 great hire</span></div>
+    <p class="ty">thank you, come again ♡</p>
+  </div>
+  <p class="press" id="press">tap the cup, or press → to order</p>
+</section>
+
+<!-- 2 ABOUT ME -->
+<section class="sl" id="hello" data-hud="d" data-t="About me" aria-label="A few things about me">
+  <div class="sun2" aria-hidden="true"></div>
+  <div class="abs" style="left:0;right:0;top:34px;text-align:center;z-index:3"><p class="kick" data-in="up">about me</p><h2 class="hed" style="font-size:50px;margin-top:6px" data-in="up" data-d="100">A few things <em>about me.</em></h2></div>
+  <div class="pola big px" id="me" style="left:590px;top:160px;width:420px;--d:-6"><img src="https://tisyalily.github.io/tisya-lily-studio/img/me-blossom.jpg" alt="Tisya under a pink blossom tree in a white top and denim skirt" style="aspect-ratio:4/5;object-position:50% 72%"><p>that's me!</p></div>
+  <div class="pola fp px" style="left:120px;top:70px;width:188px;rotate:-3deg;--d:-14" data-pop="1"><img src="https://tisyalily.github.io/tisya-lily-studio/img/p-monash.jpg" alt="Tisya at Monash"><b>Monash student</b><small>doing my Master's in IT, in Business Information Systems</small></div>
+  <div class="pola fp px" style="left:345px;top:320px;width:188px;rotate:3deg;--d:14" data-pop="3"><div class="ill"><img src="https://tisyalily.github.io/tisya-lily-studio/img/iced-latte.svg" alt="" style="height:118px"><img src="https://tisyalily.github.io/tisya-lily-studio/img/can.svg" alt="" style="height:94px;rotate:10deg"></div><b>I love caffeine in any form</b><small>energy drink or iced coffee</small></div>
+  <div class="pola fp px" style="left:120px;top:570px;width:188px;rotate:-3deg;--d:-14" data-pop="5"><img src="https://tisyalily.github.io/tisya-lily-studio/img/r-sea.jpg" alt="Tisya watching the sunset at the beach" style="object-position:50% 40%"><b>To calm myself down, I do yoga</b></div>
+  <div class="pola fp px" style="left:1300px;top:70px;width:188px;rotate:3deg;--d:14" data-pop="2"><img src="https://tisyalily.github.io/tisya-lily-studio/img/brooki-cookies.jpg" alt="A stack of cookies"><b>A big sweet tooth</b><small>cookies are my weakness</small></div>
+  <div class="pola fp px" style="left:1080px;top:320px;width:188px;rotate:-3deg;--d:-14" data-pop="4"><img src="https://tisyalily.github.io/tisya-lily-studio/img/reel-dayinlife.jpg" alt="Tisya filming herself in a mirror" style="object-position:50% 25%"><b>I'd rather film it than capture it</b></div>
+  <div class="pola fp px" style="left:1300px;top:570px;width:188px;rotate:3deg;--d:14" data-pop="6"><img src="https://tisyalily.github.io/tisya-lily-studio/img/p-brunch.jpg" alt="Tisya at a sunny café table" style="object-position:50% 60%"><b>Café hopping around Melbourne</b></div>
+</section>
+
+<!-- 3 WHAT I BRING -->
+<section class="sl" id="values" data-hud="d" data-t="What I bring" aria-label="What I bring to the counter">
+  <div class="abs" style="left:80px;top:72px;width:1100px"><p class="kick" data-in="up">what I bring to the counter</p><h2 class="hed" style="font-size:78px" data-in="up" data-d="120">Four things, <em>with receipts.</em></h2></div>
+  <p class="abs tap" style="left:1260px;top:200px;margin:0;width:280px" data-in="fade" data-d="1200">every card has the proof on the back. tap to flip ↓</p>
+  <div class="vals" id="vals"></div>
+</section>
+
+<!-- 4 RECIPE -->
+<section class="sl" id="recipe" data-hud="d" data-t="The recipe" aria-label="What the role needs and where I learned it">
+  <div class="abs" style="left:80px;top:90px;width:480px">
+    <p class="kick" data-in="up">made to order</p>
+    <h2 class="hed" style="font-size:76px" data-in="up" data-d="120">What the role needs, <em>and where I learned it.</em></h2>
+    <p class="body" data-in="up" data-d="250">Everything a store or café team asks for, matched to what I already do every week.</p>
+  </div>
+  <div class="abs px" style="left:190px;top:560px;--d:-14"><div class="float" style="--fd:7s"><img src="https://tisyalily.github.io/tisya-lily-studio/img/iced-latte.svg" alt="" style="height:230px;filter:drop-shadow(0 20px 24px rgba(58,34,25,.3))"></div></div>
+  <div class="card" data-in="rise" data-d="150"><h3>Tisya's recipe for a great shift</h3><ul class="ing" id="ing"></ul></div>
+</section>
+
+<!-- 5 NUMBERS -->
+<section class="sl bl" id="numbers" data-hud="d" data-t="By the numbers" aria-label="By the numbers">
+  <div class="abs" style="left:80px;top:90px;width:1100px"><p class="kick" data-in="up">fresh from the till</p><h2 class="hed" data-in="up" data-d="120">By the <em>numbers.</em></h2></div>
+  <div class="nums" id="nums"></div>
+  <p class="abs hand" style="left:80px;top:720px;font-size:26px;color:var(--maroon);margin:0" data-in="pop" data-d="1500">every one of these started with a hello and a question: “what are you looking for today?”</p>
+</section>
+
+<!-- 6 JOBS -->
+<section class="sl" id="story" data-hud="d" data-t="Where I've worked" aria-label="Where I've worked">
+  <div class="abs" style="left:80px;top:90px;width:1440px"><p class="kick" data-in="up">where I've worked</p><h2 class="hed" style="font-size:80px" data-in="up" data-d="120">Front of house, <em>and behind the scenes.</em></h2></div>
+  <div class="shelf" id="shelf"></div>
+</section>
+
+<!-- 7 ROSTER -->
+<section class="sl dk" id="roster" data-hud="l" data-t="Availability" aria-label="Availability">
+  <div class="abs" style="left:80px;top:90px;width:1100px"><p class="kick" data-in="up">availability</p><h2 class="hed" data-in="up" data-d="120">Ready for the <em>summer rush.</em></h2></div>
+  <div class="week" id="week" data-in="up" data-d="250"></div>
+  <p class="abs" style="left:80px;top:660px;width:900px;font:400 17px/1.5 var(--f-u);color:rgba(251,245,238,.65);margin:0" data-in="fade" data-d="900">Over summer I can pick up shifts across the whole week. From 20 February, I fit up to 48 hours a fortnight around my Monash classes.</p>
+  <div class="avail" data-in="up" data-d="400">
+    <div class="row"><i>✓</i><div><b>Full-time until 20 February</b><br><span>Monash summer break</span></div></div>
+    <div class="row"><i>✓</i><div><b>Up to 48 hours a fortnight after that</b><br><span>I hold a student visa with work rights</span></div></div>
+    <div class="row"><i>✓</i><div><b>Weekends, early mornings, evenings</b><br><span>happy to work a flexible roster</span></div></div>
+    <div class="row"><i>✓</i><div><b>Happy to work across stores</b><br><span>based in Docklands, easy to travel</span></div></div>
+    <div class="row"><i>✓</i><div><b>Keen to learn</b><br><span>food safety training, new tasks, anything the store needs</span></div></div>
+  </div>
+</section>
+
+<!-- 8 BONUS -->
+<section class="sl" id="bonus" data-hud="d" data-t="A little extra" aria-label="A little extra: content">
+  <div class="abs" style="left:640px;top:90px;width:880px"><p class="kick" data-in="up">a little extra</p><h2 class="hed" style="font-size:70px" data-in="up" data-d="120">I make content, <em>too.</em></h2>
+    <p class="body" data-in="up" data-d="240">As @tisya.lily I post the real thing: 21.4K followers and 2M views in a month, all planned, filmed and edited by me. If your store ever wants content, here's what I'd film:</p></div>
+  <div class="abs px" style="left:110px;top:120px;--d:12"><div class="float" style="--fd:7s"><div class="phone" data-in="rise" data-d="200" style="rotate:-6deg"><div class="s"><img src="https://tisyalily.github.io/tisya-lily-studio/img/ig-profile.jpg" alt="Tisya's Instagram profile: 21.4K followers, 2.0M views in 30 days" style="object-fit:contain"></div></div></div></div>
+  <div class="abs px" style="left:330px;top:250px;--d:-16"><div class="float" style="--fd:8s;--fdl:-2s"><div class="phone" data-in="rise" data-d="400" style="rotate:6deg;width:230px"><div class="s"><img src="https://tisyalily.github.io/tisya-lily-studio/img/ig-reels.jpg" alt="Tisya's Reels with view counts"></div></div></div></div>
+  <div class="ideas" id="ideas"></div>
+</section>
+
+<!-- 9 THANKS -->
+<section class="sl dk" id="thanks" data-hud="l" data-t="Let's chat" aria-label="Thank you and contact">
+  <div id="beans2"></div>
+  <div class="abs" style="left:0;right:0;top:170px;text-align:center;z-index:3">
+    <p class="hand" style="font-size:34px;color:var(--rose);margin:0" data-in="pop">thanks for stopping by. I'd love to be part of your team.</p>
+    <h2 class="hed" style="font-size:132px;margin-top:8px" data-in="up" data-d="150">Let's <em>chat.</em></h2>
+  </div>
+  <div class="abs" style="left:0;right:0;top:520px;z-index:3" data-in="up" data-d="350">
+    <div class="cards">
+      <div class="cc"><small>Email</small><span>tisyabusybee@gmail.com</span><button data-copy="tisyabusybee@gmail.com">copy</button></div>
+      <div class="cc"><small>LinkedIn</small><a href="https://www.linkedin.com/in/tisya-choudhary-954877281" target="_blank" rel="noopener">tisya-choudhary ↗</a></div>
+      <div class="cc"><small>Instagram</small><a href="https://www.instagram.com/tisya.lily/" target="_blank" rel="noopener">@tisya.lily ↗</a></div>
+    </div>
+  </div>
+  <button class="abs" id="again" style="left:50%;top:690px;transform:translateX(-50%);border:1.5px solid rgba(251,245,238,.5);background:none;border-radius:99px;padding:11px 20px;font:600 14px var(--f-u);color:var(--cream);cursor:pointer;z-index:3">↺ back to the cup</button>
+</section>
+
+<div class="hud d" id="hud"><span class="brand">Tisya · freshly brewed</span><div class="dots" id="dots"></div>
+  <div class="navb"><button id="prev" aria-label="Previous">←</button><button id="next" aria-label="Next">→</button></div></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s), $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const stage = $("#stage"), EZ = "cubic-bezier(.2,.9,.25,1)";
+function rng(seed){ let s = seed*9301+49297; return () => (s = (s*9301+49297)%233280)/233280; }
+
+/* ---------- little icons for the cards ---------- */
+const ICONS = [
+  `<svg width="128" height="128" viewBox="0 0 92 92"><path d="M18 34h48l-5 44H23z" fill="#fffaf3" stroke="#3a2219" stroke-width="3" stroke-linejoin="round"/><path d="M21 52h42l-2 16H23z" fill="#c8674a"/><rect x="14" y="26" width="56" height="10" rx="4" fill="#3a2219"/><path d="M66 44c12 0 12 16 0 16" fill="none" stroke="#3a2219" stroke-width="3"/><path d="M36 20q-6-6 0-12M48 20q6-6 0-12" fill="none" stroke="#c8674a" stroke-width="3" stroke-linecap="round"/></svg>`,
+  `<svg width="128" height="128" viewBox="0 0 92 92"><path d="M20 32h52l-4 46H24z" fill="#f2c9cf" stroke="#5e1a2c" stroke-width="3" stroke-linejoin="round"/><path d="M34 40V26a12 12 0 0 1 24 0v14" fill="none" stroke="#5e1a2c" stroke-width="3" stroke-linecap="round"/><path d="M46 52l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" fill="#9b2443"/></svg>`,
+  `<svg width="128" height="128" viewBox="0 0 92 92"><path d="M18 64l8-22h40l8 22z" fill="#e8b65a" stroke="#8a5a1f" stroke-width="3" stroke-linejoin="round"/><path d="M26 42l6-14h28l6 14" fill="#f3cf7d" stroke="#8a5a1f" stroke-width="3" stroke-linejoin="round"/><path d="M34 36h24" stroke="#fff6dd" stroke-width="3" stroke-linecap="round"/><path d="M14 72h64" stroke="#3a2219" stroke-width="3" stroke-linecap="round"/></svg>`,
+  `<svg width="128" height="128" viewBox="0 0 92 92"><g transform="rotate(-14 30 50)"><path d="M14 34h30l-3 36H17z" fill="#fffaf3" stroke="#3a2219" stroke-width="3" stroke-linejoin="round"/><rect x="11" y="28" width="36" height="8" rx="3" fill="#3a2219"/></g><g transform="rotate(14 62 50)"><path d="M48 34h30l-3 36H51z" fill="#f2c9cf" stroke="#5e1a2c" stroke-width="3" stroke-linejoin="round"/><rect x="45" y="28" width="36" height="8" rx="3" fill="#5e1a2c"/></g><path d="M46 16l2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1z" fill="#c8674a"/></svg>`];
+
+/* ---------- content ---------- */
+const VALUES = [
+  ["#fbeee6","#5e1a2c","A warm welcome","At Jacqui E, a customer came in for two or three office tops. I asked what she actually needed, and she left with ten pieces.","“You're so helpful… I would always come back.”"],
+  ["#fbe3e5","#9b2443","Pride in the product","I learn the product inside out so I can recommend with confidence, and I'm meticulous about displays. Handling gold and silver every day will do that to you.","Full, fresh and beautiful, every shift."],
+  ["#f8ecd6","#3a2219","Trust and integrity","At Great Southland Bullion I'm trusted with high-value stock and help bring in $150K+ in sales a week, with accurate POS and cash handling every time.","Regulars ask for me by name."],
+  ["#f6e3dc","#b3563b","Team spirit","I kept an 8-person content team on schedule at NEWME and coordinated 50+ partners at Social Beings without a single missed deadline.","Busy rush? I jump in wherever I'm needed."]];
+const RECIPE = [
+  ["Welcome every customer with warmth","I'm the first hello at <i>Jacqui E</i> and <i>Great Southland Bullion</i>. Once, a customer who spoke mostly Mandarin needed help, so I used Google Translate to go through every question with him. He now only comes in when I'm working."],
+  ["Recommend products with confidence","I average <i>2.1 items per sale</i> and an <i>$85 average sale</i> at Jacqui E, just by asking good questions."],
+  ["Point-of-sale and cash handling","Every shift at both stores, with high-value transactions at <i>Great Southland Bullion</i>."],
+  ["Keep displays full, fresh and beautiful","Visual merchandising to premium standards with valuable stock."],
+  ["Hit daily sales goals as a team","I help bring in <i>$150K+ a week</i> at Great Southland Bullion."],
+  ["Thrive in a fast-paced, busy store","Weekend rushes in two stores, plus marketing deadlines since 2023."],
+  ["Communicate clearly and kindly","<i>IELTS 8.0</i> overall, <i>8.5</i> in speaking. I love a chat."],
+  ["Food safety and hygiene","New to food handling, keen to complete any training, and I take standards seriously."]];
+const NUMS = [["$150K+","in sales a week that I help bring in","Great Southland Bullion"],["$600+","in one sale, from listening to one customer","Jacqui E"],["2.1","items per sale, on average","Jacqui E"],["$85","average sale value","Jacqui E"]];
+const JOBS = [["Jul 2026 – now","Jacqui E","Sales Assistant","A $600+ sale, 2.1 items per sale, and customers who come back.",1],["Aug 2026 – now","Great Southland Bullion","Sales & Marketing Specialist","$150K+ a week in sales, high-value stock, regulars by name.",1],
+  ["2024","Social Beings","Client & Communications Coordinator","50+ partners, zero missed deadlines."],["2023 – 24","NEWME","Content & Campaign Coordinator","Kept an 8-person content team on schedule."],
+  ["2025","HK Marketing Solutions","Client Services & Digital Associate","Campaign reports, dashboards and influencer tracking."],["2025","Rock My Sales","Growth Performance Analyst (intern)","Turned social numbers into what to post next."],
+  ["2026 – now","Monash University","Master of Business Information Systems","Distinction average so far.",0],["2022 – 26","Amity University","BTech, Biotechnology","Distinction, and a published Springer paper."]];
+const IDEAS = [["IDEA 01","The morning pour","The first coffee of the day, filmed slow and close. The kind of clip people watch three times."],["IDEA 02","Guess the order","Regulars describe their usual and the team guesses. Easy, fun and great for comments."],["IDEA 03","A day behind the counter","From opening up to the last customer, shot like my Tisya in Melbourne series."]];
+
+$("#vals").innerHTML = VALUES.map(([bg,back,t,p,q],i) => `<button class="vc" aria-label="${esc(t)}: tap to flip"><div class="in"><div class="f"><div class="vic" style="background:${bg}">${ICONS[i]}</div><small>no. 0${i+1}</small><b>${esc(t)}</b></div><div class="b" style="background:${back}"><small>no. 0${i+1}</small><b>${esc(t)}</b><p>${esc(p)}</p><span class="q">${esc(q)}</span></div></div></button>`).join("");
+$$(".vc").forEach(c => c.onclick = () => c.classList.toggle("flip"));
+$("#ing").innerHTML = RECIPE.map(([a,b]) => `<li><span class="ck">✓</span><div><b>${esc(a)}</b><span>${b}</span></div></li>`).join("");
+$("#nums").innerHTML = NUMS.map(([v,l,s],i) => `<div class="nb" data-in="up" data-d="${250+i*150}"><b data-cnt="${esc(v)}">${esc(v)}</b><span>${esc(l)}</span><small>${esc(s)}</small></div>`).join("");
+$("#shelf").innerHTML = JOBS.map(([y,a,b,c,now]) => `<div class="jc${now?" now":""}">${now?'<span class="badge">NOW</span>':""}<span class="yr">${esc(y)}</span><b>${esc(a)}</b><span>${esc(b)}</span><p>${esc(c)}</p></div>`).join("");
+const DAYS = ["MON","TUE","WED","THU","FRI","SAT","SUN"];
+$("#week").innerHTML = `<div class="h"></div>` + DAYS.map(d => `<div class="h">${d}</div>`).join("") + ["early","day","evening"].map(n => `<div class="r">${n}</div>` + DAYS.map(() => `<div class="s">✓</div>`).join("")).join("");
+$("#ideas").innerHTML = IDEAS.map(([a,b,c],i) => `<div class="idea" data-in="up" data-d="${400+i*150}"><small>${a}</small><b>${esc(b)}</b><p>${esc(c)}</p></div>`).join("");
+function beans(box, n, seed, keepOut){ const r = rng(seed); let out = "", k = 0;
+  while (k < n){ const x = r()*1560, y = r()*860; if (keepOut && keepOut(x,y)) continue; const s = 14+r()*18;
+    out += `<i class="bean px" style="left:${x.toFixed(0)}px;top:${y.toFixed(0)}px;width:${(s*.78).toFixed(0)}px;height:${s.toFixed(0)}px;--d:${(r()*40-20).toFixed(0)};rotate:${(r()*180).toFixed(0)}deg;opacity:${(.35+r()*.4).toFixed(2)}"></i>`; k++; }
+  box.innerHTML = out; }
+beans($("#beans"), 22, 5, (x,y) => (x>260 && x<1340 && y<280) || (x>420 && x<1240 && y<840) || (x<340 && y>790) || (x>1400 && y>770));
+beans($("#beans2"), 26, 9, (x,y) => (x>300 && x<1300 && y>140 && y<760) || (x<340 && y>790) || (x>1400 && y>770) || (x>560 && x<1040 && y>800));
+
+/* ---------- fit + parallax ---------- */
+let skipRot = false;
+function fit(){ const s = Math.min(innerWidth/1600, innerHeight/900); stage.style.transform = `translate(-50%,-50%) scale(${s})`;
+  $("#rot").classList.toggle("on", !skipRot && innerHeight > innerWidth && innerWidth < 760); }
+addEventListener("resize", fit); fit(); $("#rot-go").onclick = () => { skipRot = true; fit(); };
+stage.addEventListener("pointermove", e => { if (reduce) return; const r = stage.getBoundingClientRect();
+  stage.style.setProperty("--mx", ((e.clientX-r.left)/r.width*2-1).toFixed(3)); stage.style.setProperty("--my", ((e.clientY-r.top)/r.height*2-1).toFixed(3)); });
+
+/* ---------- motion ---------- */
+const KF = {
+  up:()=>[{transform:"translateY(36px)",opacity:0},{transform:"none",opacity:1}],
+  fade:()=>[{opacity:0},{opacity:1}],
+  pop:()=>[{transform:"scale(.4)",opacity:0},{transform:"scale(1.08)",opacity:1,offset:.7},{transform:"none",opacity:1}],
+  rise:()=>[{transform:"translateY(200px)",opacity:0},{transform:"none",opacity:1}]
+};
+const timers = []; const later = (f,ms) => timers.push(setTimeout(f,ms));
+function countUp(el, target, delay){
+  const m = target.match(/^([^\d]*)([\d,.]+)(.*)$/); if (!m || reduce) { el.textContent = target; return; }
+  const pre = m[1], raw = m[2], suf = m[3], dec = (raw.split(".")[1]||"").length, val = parseFloat(raw.replace(/,/g,""));
+  el.textContent = pre + (0).toFixed(dec) + suf;
+  later(() => { const t0 = performance.now(); const f = now => { const p = Math.min(1,(now-t0)/1400), e = 1-Math.pow(1-p,3); el.textContent = pre + (val*e).toFixed(dec) + suf; if (p<1) requestAnimationFrame(f); else el.textContent = target; }; requestAnimationFrame(f); }, delay);
+}
+let printed = false;
+function printOrder(){ if (printed) return; printed = true; const d = $("#docket");
+  if (reduce) { d.classList.add("out"); } else {
+    d.animate([{clipPath:"inset(0 0 100% 0)",transform:"translateY(-40px)"},{clipPath:"inset(0 0 0 0)",transform:"none"}],{duration:1600,easing:"steps(14,end)",fill:"forwards"});
+    $("#cup").animate([{transform:"none"},{transform:"rotate(-6deg) translateY(-10px)"},{transform:"rotate(4deg)"},{transform:"none"}],{duration:600,easing:"ease-in-out"}); }
+  $("#press").textContent = "one order, freshly printed. press → for the rest";
+}
+$("#cup").onclick = printOrder;
+const ENTER = {
+  hello(sc){ if (reduce) return; $("#me").animate([{transform:"translateY(260px)",opacity:0},{transform:"none",opacity:1}],{duration:1000,delay:150,easing:EZ,fill:"backwards"});
+    $$(".fp", sc).forEach(f => { const k = +f.dataset.pop; f.animate([{transform:"scale(.2)",opacity:0},{transform:"scale(1.08)",opacity:1,offset:.7},{transform:"none",opacity:1}],{duration:600,delay:700+k*260,easing:"cubic-bezier(.2,.9,.3,1.3)",fill:"backwards"}); }); },
+  cover(){ printed = false; const d = $("#docket"); d.getAnimations().forEach(a => a.cancel()); d.classList.remove("out"); $("#press").textContent = "tap the cup, or press → to order";
+    if (!reduce) $("#cup").animate([{transform:"translateY(140px) scale(.9)",opacity:0},{transform:"none",opacity:1}],{duration:900,delay:200,easing:EZ,fill:"backwards"});
+    later(printOrder, 2300); },
+  values(sc){ const cards = $$(".vc", sc); cards.forEach(c => c.classList.remove("flip"));
+    if (!reduce) cards.forEach((c,i) => c.animate([{transform:"translateY(80px) rotate(4deg)",opacity:0},{transform:"none",opacity:1}],{duration:800,delay:250+i*140,easing:EZ,fill:"backwards"}));
+    cards.forEach((c,i) => later(() => c.classList.add("flip"), 1500+i*600)); },
+  recipe(sc){ $$(".ing .ck", sc).forEach((c,i) => { c.classList.remove("on"); later(() => { c.classList.add("on"); if (!reduce) c.animate([{transform:"scale(.4)"},{transform:"scale(1.2)"},{transform:"none"}],{duration:380}); }, 700+i*260); });
+    if (!reduce) $$(".ing li", sc).forEach((li,i) => li.animate([{transform:"translateX(30px)",opacity:0},{transform:"none",opacity:1}],{duration:500,delay:500+i*260,easing:EZ,fill:"backwards"})); },
+  story(sc){ if (!reduce) $$(".jc", sc).forEach((c,i) => c.animate([{transform:"translateY(60px) scale(.94)",opacity:0},{transform:"none",opacity:1}],{duration:700,delay:200+i*90,easing:EZ,fill:"backwards"})); },
+  roster(sc){ if (!reduce) $$("#week .s", sc).forEach((c,i) => c.animate([{transform:"scale(.3)",opacity:0},{transform:"none",opacity:1}],{duration:380,delay:500+(i%7)*70+Math.floor(i/7)*160,easing:"cubic-bezier(.2,.9,.3,1.4)",fill:"backwards"})); }
+};
+function choreo(sc){
+  if (!reduce) $$("[data-in]", sc).forEach(el => el.animate(KF[el.dataset.in](), {duration:800, delay:+(el.dataset.d||0), easing:EZ, fill:"backwards"}));
+  $$("[data-cnt]", sc).forEach(b => countUp(b, b.dataset.cnt, +(b.closest("[data-d]")?.dataset.d||0)+250));
+  (ENTER[sc.id]||(()=>{}))(sc);
+}
+
+/* ---------- navigation ---------- */
+const slides = $$(".sl"); let cur = 0, busy = false; const seen = new Set([0]);
+$("#dots").innerHTML = slides.map((s,i) => `<button data-i="${i}" aria-label="Slide ${i+1}: ${esc(s.dataset.t)}"><span>${esc(s.dataset.t)}</span></button>`).join("");
+$$("#dots button").forEach(b => b.onclick = () => go(+b.dataset.i));
+function hud(){ $("#hud").className = "hud " + slides[cur].dataset.hud; $("#prev").disabled = cur===0; $("#next").disabled = cur===slides.length-1;
+  $$("#dots button").forEach((b,i) => { b.classList.toggle("cur", i===cur); b.classList.toggle("seen", seen.has(i)); }); }
+function go(n){
+  if (busy || n===cur || n<0 || n>=slides.length) return;
+  const a = slides[cur], b = slides[n], fwd = n > cur, D = reduce ? 1 : 900;
+  busy = true; timers.forEach(clearTimeout); timers.length = 0;
+  b.classList.add("on"); b.style.zIndex = 2; a.style.zIndex = 1;
+  b.animate([{transform:`translateX(${fwd?100:-100}%) rotate(${fwd?4:-4}deg)`,borderRadius:"40px"},{transform:"none",borderRadius:"0"}],{duration:D,easing:"cubic-bezier(.7,0,.2,1)"});
+  a.animate([{transform:"none",filter:"brightness(1)"},{transform:`translateX(${fwd?-25:25}%) scale(.9)`,filter:"brightness(.7)"}],{duration:D,easing:"cubic-bezier(.7,0,.2,1)"})
+    .onfinish = () => { a.classList.remove("on"); a.style.zIndex = b.style.zIndex = ""; busy = false; };
+  cur = n; seen.add(n); hud(); choreo(b);
+}
+$("#next").onclick = () => { if (cur===0 && !printed) return printOrder(); go(cur+1); };
+$("#prev").onclick = () => go(cur-1);
+$("#again").onclick = () => go(0);
+addEventListener("keydown", e => {
+  if (["ArrowRight","PageDown"," "].includes(e.key)) { e.preventDefault(); $("#next").click(); }
+  if (["ArrowLeft","PageUp"].includes(e.key)) { e.preventDefault(); go(cur-1); }
+});
+let wl = 0;
+addEventListener("wheel", e => { const now = Date.now(); if (now < wl || Math.abs(e.deltaY) < 25) return; wl = now + 1100; e.deltaY > 0 ? $("#next").click() : go(cur-1); }, {passive:true});
+let tx = null; stage.addEventListener("touchstart", e => tx = e.touches[0].clientX, {passive:true});
+stage.addEventListener("touchend", e => { if (tx===null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 60) dx < 0 ? $("#next").click() : go(cur-1); tx = null; }, {passive:true});
+$$("[data-copy]").forEach(b => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "copied"; }
+  catch { const s = b.previousElementSibling, r = document.createRange(); r.selectNodeContents(s); getSelection().removeAllRanges(); getSelection().addRange(r); b.textContent = "selected"; }
+  setTimeout(() => b.textContent = "copy", 1500); });
+
+hud(); choreo(slides[0]);
+</script>
+
+</body>
+</html>
